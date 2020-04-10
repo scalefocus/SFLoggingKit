@@ -1,6 +1,6 @@
 //
-//  LoggingInterface.swift
-//  LoggingKit
+//  SFLoggingInterface.swift
+//  SFLoggingKit
 //
 //  Created by Martin Vasilev on 4.08.18.
 //  Copyright © 2018 Upnetix. All rights reserved.
@@ -15,7 +15,7 @@ import Foundation
 /// - warning: Should log various warnings or not very significant errors
 /// - error: Should log errors (Server errors, library failures and so on)
 /// - severe: Should log severe errors, crashes possibly or catching serious exceptions
-public enum LogLevel: Int {
+public enum SFLogLevel: Int {
     case debug = 0
     case info
     case warning
@@ -23,9 +23,9 @@ public enum LogLevel: Int {
     case severe
 }
 
-public protocol LoggingInterface {
+public protocol SFLoggingInterface {
     /// The log level at which logs will be visible
-    var currentLogLevel: LogLevel {get set}
+    var currentLogLevel: SFLogLevel {get set}
     
     /// Determines if the logs should be visible when attatching a device and debugging in the console
     var shouldLogInBackgroundConsole: Bool {get set}
@@ -35,12 +35,12 @@ public protocol LoggingInterface {
     /// - Parameters:
     ///   - logLevel: Current log level that will be visible
     ///   - shouldLogInBackgroundConsole: Should logs be visible in the attatched console
-    func configure(logLevel: LogLevel, shouldLogInBackgroundConsole: Bool)
+    func configure(logLevel: SFLogLevel, shouldLogInBackgroundConsole: Bool)
     
     /// Log a message with specific log level. It should be logged ONLY if the log level is the same
     /// or higher than the current log level of the LoggingInterface
     /// - Parameters:
     ///   - message: The message to log
     ///   - logLevel: The log level of the message
-    func log(_ message: String, logLevel: LogLevel)
+    func log(_ message: String, logLevel: SFLogLevel)
 }

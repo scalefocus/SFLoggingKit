@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double LoggingKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char LoggingKitVersionString[];
+FOUNDATION_EXPORT double SFLoggingKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char SFLoggingKitVersionString[];
 

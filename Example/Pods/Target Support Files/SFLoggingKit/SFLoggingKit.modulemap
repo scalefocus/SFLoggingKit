@@ -1,0 +1,6 @@
+framework module SFLoggingKit {
+  umbrella header "SFLoggingKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

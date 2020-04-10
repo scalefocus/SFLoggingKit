@@ -1,6 +1,0 @@
-framework module LoggingKit {
-  umbrella header "LoggingKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

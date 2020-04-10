@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'LoggingKit'
+  s.name             = 'SFLoggingKit'
   s.version          = '1.0.2'
   s.summary          = 'LoggingKit handles logging for various LogLevels'
 
@@ -31,7 +31,7 @@ TODO: LoggingKit handles logging for various LogLevels Add long description of t
   s.ios.deployment_target = '10.0'
   s.swift_version = '4.0'
 
-  s.source_files = 'LoggingKit/Classes/**/*'
+  s.source_files = 'SFLoggingKit/Classes/**/*'
   
   # s.resource_bundles = {
   #   'LoggingKit' => ['LoggingKit/Assets/*.png']

@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## LoggingKit
+## SFLoggingKit
 
 Copyright (c) 2018 Martin Vasilev <martin.vasilev@upnetix.com>
 

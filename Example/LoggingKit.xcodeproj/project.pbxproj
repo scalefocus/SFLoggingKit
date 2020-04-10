@@ -109,7 +109,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				3F404EFF346EDCCDE55D8886 /* [CP] Embed Pods Frameworks */,
+				123B175B9CF703185BADCECB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,22 +166,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F404EFF346EDCCDE55D8886 /* [CP] Embed Pods Frameworks */ = {
+		123B175B9CF703185BADCECB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LoggingKit_Tests/Pods-LoggingKit_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/LoggingKit/LoggingKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-LoggingKit_Tests/Pods-LoggingKit_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SFLoggingKit/SFLoggingKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoggingKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SFLoggingKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoggingKit_Tests/Pods-LoggingKit_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoggingKit_Tests/Pods-LoggingKit_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D2B24B6A1FD59245636C34D5 /* [CP] Check Pods Manifest.lock */ = {

@@ -1,5 +1,5 @@
 {
-  "name": "LoggingKit",
+  "name": "SFLoggingKit",
   "version": "1.0.2",
   "summary": "LoggingKit handles logging for various LogLevels",
   "description": "TODO: LoggingKit handles logging for various LogLevels Add long description of the pod here.",
@@ -19,6 +19,6 @@
     "ios": "10.0"
   },
   "swift_versions": "4.0",
-  "source_files": "LoggingKit/Classes/**/*",
+  "source_files": "SFLoggingKit/Classes/**/*",
   "swift_version": "4.0"
 }

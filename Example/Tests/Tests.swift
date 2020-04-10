@@ -1,5 +1,5 @@
 import XCTest
-import LoggingKit
+import SFLoggingKit
 
 class Tests: XCTestCase {
     
