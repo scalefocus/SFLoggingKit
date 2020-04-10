@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SFLoggingKit'
-  s.version          = '1.0.3'
-  s.summary          = 'LoggingKit handles logging for various LogLevels'
+  s.version          = '2.0.0'
+  s.summary          = 'SFLoggingKit handles logging for various LogLevels'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: LoggingKit handles logging for various LogLevels Add long description of the pod here.
+TODO: SFLoggingKit handles logging for various LogLevels Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/scalefocus/SFLoggingKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.screenshots      = 'https://user-images.githubusercontent.com/7243597/78951156-c8963300-7ad9-11ea-831c-949ab8fbd564.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Scalefocus' => 'code@upnetix.com' }
   s.source           = { :git => 'https://github.com/scalefocus/SFLoggingKit.git', :tag => s.version.to_s }
@@ -34,7 +34,7 @@ TODO: LoggingKit handles logging for various LogLevels Add long description of t
   s.source_files = 'SFLoggingKit/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'LoggingKit' => ['LoggingKit/Assets/*.png']
+  #   'SFLoggingKit' => ['SFLoggingKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

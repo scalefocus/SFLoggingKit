@@ -1,0 +1,16 @@
+PODS:
+  - SFLoggingKit (1.0.3)
+
+DEPENDENCIES:
+  - SFLoggingKit (from `../`)
+
+EXTERNAL SOURCES:
+  SFLoggingKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SFLoggingKit: 33efe6f4ae394bd975367209de4cbe630dc6a1f2
+
+PODFILE CHECKSUM: f5527c8e2ce98ee2e7b631aeb65b622b3f2ffd31
+
+COCOAPODS: 1.9.1
