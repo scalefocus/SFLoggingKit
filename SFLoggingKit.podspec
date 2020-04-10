@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: LoggingKit handles logging for various LogLevels Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://bitbucket.upnetix.com/projects/IL/repos/upnetix-logging-kit-pod/browse'
+  s.homepage         = 'https://github.com/scalefocus/SFLoggingKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Martin Vasilev' => 'martin.vasilev@upnetix.com' }
-  s.source           = { :git => 'https://bitbucket.upnetix.com/scm/il/upnetix-logging-kit-pod.git', :tag => s.version.to_s }
+  s.author           = { 'Scalefocus' => 'code@upnetix.com' }
+  s.source           = { :git => 'https://github.com/scalefocus/SFLoggingKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
