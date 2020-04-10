@@ -1,41 +1,51 @@
 //
 //  SFLogger.swift
-//  SFLoggingKit
+//  SFLoggingKitDemo
 //
-//  Created by Martin Vasilev on 4.08.18.
-//  Copyright © 2018 Upnetix. All rights reserved.
+//  Created by Aleksandar Gyuzelov on 10.04.20.
+//  Copyright © 2020 Aleksandar Gyuzelov. All rights reserved.
 //
 
 import Foundation
 
-open class SFLogger: SFLoggingInterface {
+public struct SFLogger {
     
-    public static let shared = SFLogger()
+    public static var shared = SFLogger()
     
-    init() {
-        currentLogLevel = .debug
-        shouldLogInBackgroundConsole = false
-    }
+    public var configuration: SFLoggerConfigurationProtocol = SFBaseLoggerConfiguration()
     
-    final public var currentLogLevel: SFLogLevel
-    final public var shouldLogInBackgroundConsole: Bool
-    
-    final public func configure(logLevel: SFLogLevel, shouldLogInBackgroundConsole: Bool) {
-        currentLogLevel = logLevel
-        self.shouldLogInBackgroundConsole = shouldLogInBackgroundConsole
-    }
-    
-    final public func log(_ message: String, logLevel: SFLogLevel) {
-        if logLevel.rawValue >= currentLogLevel.rawValue {
-            printMessage(message)
+    public func log(_ message: Any..., logLevel: SFLogLevel = .info, _ callingFunctionName: String = #function, _ lineNumber: UInt = #line, _ fileName: String = #file) {
+        let messageString = message.map({"\($0)"}).joined(separator: " ")
+        var fullMessageString = logLevel.symbolString()
+        
+        if configuration.isTimeStampDisplayed {
+            fullMessageString += configuration.timeFormatter.string(from: Date()) + " ⇨ "
+        }
+        if configuration.isFileNameDisplayed {
+            let fileName = URL(fileURLWithPath: fileName).deletingPathExtension().lastPathComponent
+            fullMessageString += fileName + " ⇨ "
+        }
+        if configuration.isFunctionNameDisplayed {
+            fullMessageString += callingFunctionName + " ⇨ "
+        }
+        
+        if configuration.isLineNumberDisplayed {
+            fullMessageString.removeLast(3)
+            fullMessageString += " : \(lineNumber)" + " ⇨ "
+        }
+        
+        fullMessageString += messageString
+        
+        if configuration.allowToPrint(logLevel: logLevel) {
+            print(fullMessageString)
+        }
+        if configuration.allowToLogWrite(logLevel: logLevel) {
+            var fileLogger = SFFileLogger.shared
+            fileLogger.documentDirectoryPath = configuration.documentDirectoryPath
+            fileLogger.logFileName = configuration.logFileName
+            print(fullMessageString, to: &fileLogger)
         }
     }
     
-    private func printMessage(_ message: String) {
-        if shouldLogInBackgroundConsole {
-            NSLog(message)
-        } else {
-            print(message)
-        }
-    }
 }
+
