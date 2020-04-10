@@ -1,0 +1,16 @@
+PODS:
+  - LoggingKit (1.0.1)
+
+DEPENDENCIES:
+  - LoggingKit (from `../`)
+
+EXTERNAL SOURCES:
+  LoggingKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LoggingKit: d25b5f4c719b4b9564d28fac9cda9c648991ea69
+
+PODFILE CHECKSUM: d3a494abb7716d2a02fc20cac1f089d241b99fe9
+
+COCOAPODS: 1.5.3
