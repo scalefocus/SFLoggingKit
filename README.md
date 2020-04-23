@@ -10,7 +10,6 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-- [x] Xcode 11.
 - [x] Swift 5.
 - [x] iOS 10 or higher
 
@@ -43,10 +42,6 @@ $ pod install
 ```swift
 import SFLoggingKit
 ```
-
-## Author
-
-Martin Vasilev, martin.vasilev@upnetix.com
 
 ## License
 
