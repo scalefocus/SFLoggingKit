@@ -15,5 +15,4 @@ jobs:
     - stage:lint
     install: gem install cocoapods
     script:
-      - cd Exampe
-      - pod lib lint --allow-warnings
+      - pod lib lint
