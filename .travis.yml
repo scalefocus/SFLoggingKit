@@ -8,12 +8,11 @@ branches:
 
 stages:
   - name: lint
-  if: branch = master
+    if: branch = master
 
 jobs:
   include:
-    - stage:lint
-    install: gem install cocoapods
-    script:
-      - cd Exampe
-      - pod lib lint --allow-warnings
+      - stage: lint
+        install: gem install cocoapods
+        script:
+            - pod lib lint
