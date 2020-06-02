@@ -48,8 +48,6 @@ import SFLoggingKit
 
 LoggingKit is available under the MIT license. See the [LICENSE][license-url] file for more info.
 
-https://travis-ci.com/scalefocus/SFLoggingKit.svg?branch=master
-
 [swift-image]:https://img.shields.io/badge/swift-5-green.svg
 [swift-url]:  https://swift.org/
 [license-image]:  https://img.shields.io/badge/License-MIT-blue.svg
