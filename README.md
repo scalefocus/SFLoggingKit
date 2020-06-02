@@ -1,9 +1,10 @@
 # SFLoggingKit
 
-![Travis (.com) branch](https://img.shields.io/travis/com/scalefocus/SFLogginKit/master)
-![Cocoapods](https://img.shields.io/cocoapods/v/SFLoggingKit)
-![Cocoapods](https://img.shields.io/cocoapods/l/SFLoggingKit)
-![Cocoapods platforms](https://img.shields.io/cocoapods/p/SFLoggingKit)
+[![Swift Version][swift-image]][swift-url]
+[![Build Status][travis-image]][travis-url]
+[![License][license-image]][license-url]
+![CocoaPods Compatible][version-url]
+[![Platform][platform-url]][pod-url]
 
 ## Example
 
@@ -45,4 +46,14 @@ import SFLoggingKit
 
 ## License
 
-LoggingKit is available under the MIT license. See the LICENSE file for more info.
+LoggingKit is available under the MIT license. See the [LICENSE][license-url] file for more info.
+
+[swift-image]:https://img.shields.io/badge/swift-5-green.svg
+[swift-url]:  https://swift.org/
+[license-image]:  https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: https://github.com/scalefocus/SFLoggingKit/blob/master/LICENSE
+[version-url]:  https://img.shields.io/cocoapods/v/SFLoggingKit.svg
+[pod-url]: http://cocoapods.org/pods/SFLoggingKit
+[platform-url]: https://img.shields.io/cocoapods/p/SFLoggingKit
+[travis-image]: https://travis-ci.com/scalefocus/SFLoggingKit.svg?branch=master
+[travis-url]: https://travis-ci.com/github/scalefocus/SFLoggingKit
