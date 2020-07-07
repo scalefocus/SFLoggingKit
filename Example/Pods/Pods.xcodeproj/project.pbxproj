@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		202906381030F22ED39AE8ABA999956A /* SFLoggingKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EE1C4A2A17586817E281E0956E2AF902 /* SFLoggingKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */; };
+		419149FE24B4BEBD00D8FB80 /* SFLogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */; };
+		41914A0224B4D58E00D8FB80 /* SFLogLevelsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */; };
 		7083EE3F110F2FD37DEF3100CBECF945 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		834CDF90F93A6410CD4FFB5E40A4A647 /* SFLoggingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C2BA79876CE84AFEE347B58BBF272D /* SFLoggingKit-dummy.m */; };
 		A1B79E3493BCDC6A7BD39CF0324F57A1 /* SFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6964E7134AB601E057BF260636D317E /* SFLogger.swift */; };
 		C225F5027821E2CC6397242FCFF4D9D1 /* Pods-LoggingKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E478F0AB25AE72250E48320205F59E50 /* Pods-LoggingKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CD6238224BDD10792890AEEEE519FB45 /* SFLoggingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662EA634C1232EE47F7D9EE519C7E26 /* SFLoggingInterface.swift */; };
 		CD8905A25A62331808FA20F5ECA76D78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		FD8B50C9CF82CFB04752B71D9FE0A379 /* Pods-LoggingKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AD77961BF4E19B8C54C7B98B958834 /* Pods-LoggingKit_Tests-dummy.m */; };
 /* End PBXBuildFile section */
@@ -29,29 +31,31 @@
 
 /* Begin PBXFileReference section */
 		0B4C1FFE43892D4472C2199C07861F8F /* SFLoggingKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SFLoggingKit.modulemap; sourceTree = "<group>"; };
-		0FB80E396013DDA5BB618DA8AF23115B /* Pods_LoggingKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LoggingKit_Tests.framework; path = "Pods-LoggingKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FB80E396013DDA5BB618DA8AF23115B /* Pods_LoggingKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoggingKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C2BA79876CE84AFEE347B58BBF272D /* SFLoggingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SFLoggingKit-dummy.m"; sourceTree = "<group>"; };
-		2867AE66DAD96A847AE942C99DC92A32 /* SFLoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SFLoggingKit.framework; path = SFLoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2867AE66DAD96A847AE942C99DC92A32 /* SFLoggingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SFLoggingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3E7140CD215CB6FCB09A5815E401A547 /* SFLoggingKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SFLoggingKit.release.xcconfig; sourceTree = "<group>"; };
-		5E78E49DC0183EE3F0FA92BB9BD28BA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevel.swift; path = SFLoggingKit/Classes/SFLogLevel.swift; sourceTree = "<group>"; };
+		419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFLogWriter.swift; path = SFLoggingKit/Classes/SFLogWriter.swift; sourceTree = "<group>"; };
+		41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevelsValidator.swift; path = SFLoggingKit/Classes/SFLogLevelsValidator.swift; sourceTree = "<group>"; };
+		5E78E49DC0183EE3F0FA92BB9BD28BA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		69446AE4431C942D4786CED3B0491AAF /* Pods-LoggingKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LoggingKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D6ACB03F2956B15A23237DBDC8F45F8 /* Pods-LoggingKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LoggingKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		81EAD7F242574F996D98383B4D0C815A /* Pods-LoggingKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LoggingKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		826BC41852662F2370B2C12AC4D06583 /* SFLoggingKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFLoggingKit-prefix.pch"; sourceTree = "<group>"; };
 		82AD77961BF4E19B8C54C7B98B958834 /* Pods-LoggingKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LoggingKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		8FB8D89591030B04DF88381F823A4D9A /* SFLoggingKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SFLoggingKit-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A63A25EF9C74EAFBA3C4FE4427D0FAEE /* SFLoggingKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SFLoggingKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A63A25EF9C74EAFBA3C4FE4427D0FAEE /* SFLoggingKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SFLoggingKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D251A3CEB3DB08D0C812D6FAEBDF76A5 /* Pods-LoggingKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LoggingKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		E465983F66048F510D05E5CF76003B6E /* Pods-LoggingKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LoggingKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E478F0AB25AE72250E48320205F59E50 /* Pods-LoggingKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LoggingKit_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E74B9C0F804E5056AC579212DD290EF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		E74B9C0F804E5056AC579212DD290EF5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB5CBA6304D86BB75DD6E589209B17DA /* SFLoggingKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SFLoggingKit.debug.xcconfig; sourceTree = "<group>"; };
 		EE1C4A2A17586817E281E0956E2AF902 /* SFLoggingKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SFLoggingKit-umbrella.h"; sourceTree = "<group>"; };
 		F11EC2530936DC848D4ED00B7BCC80A4 /* Pods-LoggingKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LoggingKit_Tests.modulemap"; sourceTree = "<group>"; };
 		F583F271478F084F6FF9F245BFBEDA5C /* Pods-LoggingKit_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LoggingKit_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		F662EA634C1232EE47F7D9EE519C7E26 /* SFLoggingInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SFLoggingInterface.swift; path = SFLoggingKit/Classes/SFLoggingInterface.swift; sourceTree = "<group>"; };
 		F6964E7134AB601E057BF260636D317E /* SFLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SFLogger.swift; path = SFLoggingKit/Classes/SFLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,8 +176,10 @@
 		D47361FDD932A548C7DEAB633BB628A0 /* SFLoggingKit */ = {
 			isa = PBXGroup;
 			children = (
+				419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */,
+				41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */,
+				419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */,
 				F6964E7134AB601E057BF260636D317E /* SFLogger.swift */,
-				F662EA634C1232EE47F7D9EE519C7E26 /* SFLoggingInterface.swift */,
 				0D6F2412512F2DDD5F708748E9D2012F /* Pod */,
 				6528D7AD4EB6DB33F71CD5DB8788DC32 /* Support Files */,
 			);
@@ -248,6 +254,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					A7F1A6699F5A6D8B8F085190A267CE62 = {
+						LastSwiftMigration = 1150;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -290,9 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419149FE24B4BEBD00D8FB80 /* SFLogWriter.swift in Sources */,
 				A1B79E3493BCDC6A7BD39CF0324F57A1 /* SFLogger.swift in Sources */,
-				CD6238224BDD10792890AEEEE519FB45 /* SFLoggingInterface.swift in Sources */,
+				419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */,
 				834CDF90F93A6410CD4FFB5E40A4A647 /* SFLoggingKit-dummy.m in Sources */,
+				41914A0224B4D58E00D8FB80 /* SFLogLevelsValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +418,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -418,6 +431,7 @@
 			baseConfigurationReference = 7D6ACB03F2956B15A23237DBDC8F45F8 /* Pods-LoggingKit_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -441,6 +455,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -501,8 +516,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -513,6 +527,7 @@
 			baseConfigurationReference = E465983F66048F510D05E5CF76003B6E /* Pods-LoggingKit_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -536,6 +551,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -567,7 +584,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

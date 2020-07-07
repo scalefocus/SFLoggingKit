@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SFLoggingKit'
-  s.version          = '2.0.0'
+  s.version          = '2.1.0'
   s.summary          = 'LoggingKit handles logging for various LogLevels'
   s.description      = <<-DESC
 TODO: LoggingKit handles logging for various LogLevels Add long description of the pod here.
