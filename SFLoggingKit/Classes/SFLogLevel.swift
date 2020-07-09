@@ -40,7 +40,7 @@ public struct SFLogLevel: OptionSet, Equatable, Hashable {
     // be inter-mixed with the default log levels very easily.
 
     /// Creates a new default `.all` instance with a bitmask where all bits equal are equal to `1`.
-    public static let all = SFLogLevel(rawValue: 1)
+    public static let all = SFLogLevel(rawValue: 0b11111111)
 
     // MARK: - RawRepresentable
 
@@ -77,6 +77,10 @@ extension SFLogLevel: CustomStringConvertible {
             return "Error"
         case SFLogLevel.severe:
             return "Severe"
+        case .disabled:
+            return "Disabled"
+        case .all:
+            return "All"
         default:
             return "Unknown"
         }

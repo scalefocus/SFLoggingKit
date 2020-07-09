@@ -19,7 +19,7 @@ public protocol SFLogWriter {
 
 /// The ConsoleWriter class runs all modifiers in the order they were created and prints the resulting message
 /// to the console.
-open class ConsoleWriter: SFLogWriter {
+open class SFConsoleWriter: SFLogWriter {
 
     /// Determines if the logs should be visible when attatching a device and debugging in the console
     private var shouldLogInBackgroundConsole: Bool
@@ -60,7 +60,7 @@ open class ConsoleWriter: SFLogWriter {
 
 /// The OSLogWriter class runs all modifiers in the order they were created and passes the resulting message
 /// off to an OSLog with the specified subsystem and category.
-open class OSLogWriter: SFLogWriter {
+open class SFOSLogWriter: SFLogWriter {
 
     // MARK: Properties
 

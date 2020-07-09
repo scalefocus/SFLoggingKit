@@ -22,6 +22,9 @@ open class SFLogger {
 
     /// The queue used for logging.
     private let queue = DispatchQueue(label: "com.scalefocus.log")
+
+    // Should write log messages asynchronously. Default is `true`.
+    open var isAsynchronous: Bool = true
     
     // MARK: - Initialization
 
@@ -31,7 +34,7 @@ open class SFLogger {
     ///   - logLevelsValidator: The message levels that should be logged to the writers. Default is validate if level is equal or higher than `.debug`
     ///   - writers: Array of writers that messages should be sent to. Default is `ConsoleWriter`
     public init(logLevelsValidator: SFLogLevelsValidator = SFMinimumLogLevelValidator(),
-                writers: [SFLogWriter] = [ConsoleWriter()]) {
+                writers: [SFLogWriter] = [SFConsoleWriter()]) {
         self.logLevelsValidator = logLevelsValidator
         self.writers = writers
     }
@@ -122,8 +125,16 @@ extension SFLogger {
         }
 
         // NOTE: runs in own serial background thread for better performance
-        queue.async {
-            self.log(message(), with: logLevel)
+        if isAsynchronous {
+            queue.async { [weak self] in
+                guard let self = self else { return }
+                self.log(message(), with: logLevel)
+            }
+        } else {
+            queue.sync { [weak self] in
+                guard let self = self else { return }
+                self.log(message(), with: logLevel)
+            }
         }
     }
 
