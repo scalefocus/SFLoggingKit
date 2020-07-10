@@ -72,7 +72,7 @@ open class SFSystemLogWriter: SFLogWriter {
 
     // MARK: - Initializers
 
-    /// Creates an `OSLogWriter` instance from the specified `subsystem` and `category`.
+    /// Creates an `SFSystemLogWriter` instance from the specified `subsystem` and `category`.
     ///
     /// - Parameters:
     ///   - subsystem: The subsystem. Default is app bundle identifier
@@ -162,7 +162,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
 
     // MARK: - Initializers
 
-    /// Initializes a console writer instance.
+    /// Initializes a file writer instance.
     ///
     /// - Parameter fileUrl: The path to the file..
     ///
