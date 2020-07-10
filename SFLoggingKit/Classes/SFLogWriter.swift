@@ -15,15 +15,11 @@ public protocol SFLogWriter {
     func log(_ message: String, logLevel: SFLogLevel)
 }
 
-public protocol SFLogModifier {
-    
-}
-
 // MARK: - Console
 
 /// The ConsoleWriter class runs all modifiers in the order they were created and prints the resulting message
 /// to the console.
-open class SFConsoleWriter: SFLogWriter {
+open class SFConsoleLogWriter: SFLogWriter {
 
     // NOTE: Consider adding color
 
@@ -53,8 +49,6 @@ open class SFConsoleWriter: SFLogWriter {
     /// - Parameters:
     ///   - message: The original message to write to the console.
     ///   - logLevel: The log level associated with the message.
-    ///
-    /// - Returns: A new `SFConsoleWriter` instance.
     open func log(_ message: String, logLevel: SFLogLevel) {
         if shouldLogInBackgroundConsole {
             NSLog(message)
@@ -67,9 +61,9 @@ open class SFConsoleWriter: SFLogWriter {
 
 // MARK: - OSLog
 
-/// The OSLogWriter class runs all modifiers in the order they were created and passes the resulting message
+/// The SFSystemLogWriter class runs all modifiers in the order they were created and passes the resulting message
 /// off to an OSLog with the specified subsystem and category.
-open class SFOSLogWriter: SFLogWriter {
+open class SFSystemLogWriter: SFLogWriter {
 
     // MARK: - Properties
 
@@ -84,7 +78,7 @@ open class SFOSLogWriter: SFLogWriter {
     ///   - subsystem: The subsystem. Default is app bundle identifier
     ///   - category: The category. E.g. `ui`, `firebase`, `networking`, etc.
     ///
-    /// - Returns: A new `SFOSLogWriter` instance.
+    /// - Returns: A new `SFSystemLogWriter` instance.
     public init(subsystem: String = Bundle.main.bundleIdentifier!, category: String) {
         self.subsystem = subsystem
         self.category = category

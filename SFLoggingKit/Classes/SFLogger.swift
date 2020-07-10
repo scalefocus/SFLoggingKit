@@ -17,11 +17,11 @@ import Foundation
 
 open class SFLogger {
 
-    /// Default instance
+    /// Default instance. Writes to console using `print()`. Adds Timestamp, file name, calling function, line and log level name
     public static let `default`: SFLogger = {
         SFLogger(
             minLevel: .debug,
-            writers: [SFConsoleWriter()],
+            writers: [SFConsoleLogWriter()],
             modifiers: [
                 // NOTE: Will be printed in reverse order
                 SFLevelNameLogMessageModifier(),
@@ -57,6 +57,8 @@ open class SFLogger {
     ///   - logLevelsValidator: The message levels that should be logged to the writers.
     ///   - writers: Array of writers that messages should be sent to.
     ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
+    ///
+    /// - Returns: A new `SFLogger` instance.
     public init(logLevelsValidator: SFLogLevelsValidator, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
         self.logLevelsValidator = logLevelsValidator
         self.writers = writers
@@ -69,6 +71,8 @@ open class SFLogger {
     ///   - minLevel: The minimum levels fro message that should be logged to the writers. Default is validate if level is equal or higher than `.debug`
     ///   - writers: Array of writers that messages should be sent to.
     ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
+    ///
+    /// - Returns: A new `SFLogger` instance.
     public convenience init(minLevel: SFLogLevel = .debug, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
         self.init(logLevelsValidator: SFMinimumLogLevelValidator(minLevel: minLevel), writers: writers, modifiers: modifiers)
     }
@@ -79,6 +83,8 @@ open class SFLogger {
     ///   - logLevels: The message levels that should be logged to the writers. Default is validate if level is equal or higher than `.all`
     ///   - writers: Array of writers that messages should be sent to. Default is `ConsoleWriter`
     ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
+    ///
+    /// - Returns: A new `SFLogger` instance.
     public convenience init(logLevels: SFLogLevel = .all, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
         self.init(logLevelsValidator: SFContainsLogLevelValidator(logLevels: logLevels), writers: writers, modifiers: modifiers)
     }
@@ -290,13 +296,12 @@ extension SFLogger {
 
 // MARK: - Modifiers
 
-extension SFLogger {
-    private func modify(_ message: String,
-                        logLevel: SFLogLevel,
-                        _ file: String,
-                        _ function: String,
-                        _ line: Int) -> String {
-        // TODO: Create modifiers
+private extension SFLogger {
+    func modify(_ message: String,
+                logLevel: SFLogLevel,
+                _ file: String,
+                _ function: String,
+                _ line: Int) -> String {
         var message = message
         modifiers.forEach { message = $0.modify(message, with: logLevel, file, function, line) }
         return message

@@ -144,7 +144,7 @@ open class SFLiteralLogMessageModifier: SFLogMessageModifier {
     public let options: LiteralOption
 
     // NOTE: Add option to choose wheather to keep file extension or not.
-    // NOTE: Add option to change positions
+    // NOTE: Add option to change format
 
     // MARK: - Initializers
 
