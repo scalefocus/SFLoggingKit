@@ -17,7 +17,7 @@ public protocol SFLogWriter {
 
 // MARK: - Console
 
-/// The ConsoleWriter class runs all modifiers in the order they were created and prints the resulting message
+/// The SFConsoleLogWriter class runs all modifiers in the order they were created and prints the resulting message
 /// to the console.
 open class SFConsoleLogWriter: SFLogWriter {
 
@@ -121,3 +121,72 @@ open class SFSystemLogWriter: SFLogWriter {
 }
 
 // MARK: - File
+
+public protocol SFFileWritable {
+    var fileUrl: URL { get }
+    var encoding: String.Encoding { get }
+    func write(_ text: String) throws
+}
+
+public enum SFFileWriteError: Error {
+    case convertToDataIssue
+    case fileNotFound
+}
+
+public extension SFFileWritable {
+    var encoding: String.Encoding {
+        return .utf8
+    }
+
+    func write(_ text: String) throws {
+        guard let fileHandle = FileHandle(forWritingAtPath: fileUrl.path) else {
+            throw SFFileWriteError.fileNotFound
+        }
+
+        guard let data = text.data(using: encoding) else {
+            throw SFFileWriteError.convertToDataIssue
+        }
+
+        fileHandle.seekToEndOfFile()
+        fileHandle.write(data)
+    }
+}
+
+/// The SFConsoleLogWriter class runs all modifiers in the order they were created and prints the resulting message
+/// to the console.
+open class SFFileLogWriter: SFLogWriter, SFFileWritable {
+
+    // MARK: - Properties
+
+    public let fileUrl: URL
+
+    // MARK: - Initializers
+
+    /// Initializes a console writer instance.
+    ///
+    /// - Parameter shouldLogInBackgroundConsole: The function to use when logging to the console. Defaults to `print`.
+    ///
+    /// - Returns: A new file writer instance.
+    public init(fileUrl: URL) {
+        self.fileUrl = fileUrl
+    }
+
+    // MARK: - SFLogWriter
+
+    /// Writes the message to the console using the global `print` or `NSLog`  function.
+    ///
+    /// Modifier is run over the message in the order to provide log level before writing the message to
+    /// the console.
+    ///
+    /// - Parameters:
+    ///   - message: The original message to write to the console.
+    ///   - logLevel: The log level associated with the message.
+    open func log(_ message: String, logLevel: SFLogLevel) {
+        do {
+            try write(message)
+        } catch {
+            // Do something
+        }
+    }
+
+}
