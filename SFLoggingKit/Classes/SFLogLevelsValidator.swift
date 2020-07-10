@@ -22,6 +22,8 @@ public final class SFMinimumLogLevelValidator: SFLogLevelsValidator {
     ///
     /// - Parameters:
     ///   - minLevel: The message levels filter. Default is `.debug`
+    ///
+    /// - Returns: A new `SFMinimumLogLevelValidator` instance.
     public init(minLevel: SFLogLevel = .debug) {
         self.minLevel = minLevel
     }
@@ -43,6 +45,8 @@ public final class SFContainsLogLevelValidator: SFLogLevelsValidator {
     ///
     /// - Parameters:
     ///   - logLevels: The message levels that should be logged to the writers. Default is `.all`
+    ///
+    /// - Returns: A new `SFContainsLogLevelValidator` instance.
     public init(logLevels: SFLogLevel = .all) {
         self.logLevels = logLevels
     }

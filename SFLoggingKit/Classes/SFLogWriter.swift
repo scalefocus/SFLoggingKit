@@ -15,14 +15,24 @@ public protocol SFLogWriter {
     func log(_ message: String, logLevel: SFLogLevel)
 }
 
+public protocol SFLogModifier {
+    
+}
+
 // MARK: - Console
 
 /// The ConsoleWriter class runs all modifiers in the order they were created and prints the resulting message
 /// to the console.
 open class SFConsoleWriter: SFLogWriter {
 
+    // NOTE: Consider adding color
+
+    // MARK: - Properties
+
     /// Determines if the logs should be visible when attatching a device and debugging in the console
-    private var shouldLogInBackgroundConsole: Bool
+    private let shouldLogInBackgroundConsole: Bool
+
+    // MARK: - Initializers
 
     /// Initializes a console writer instance.
     ///
@@ -43,10 +53,9 @@ open class SFConsoleWriter: SFLogWriter {
     /// - Parameters:
     ///   - message: The original message to write to the console.
     ///   - logLevel: The log level associated with the message.
+    ///
+    /// - Returns: A new `SFConsoleWriter` instance.
     open func log(_ message: String, logLevel: SFLogLevel) {
-        // NOTE: Consider adding other message modifiers
-        let message = "\(logLevel): \(message)"
-
         if shouldLogInBackgroundConsole {
             NSLog(message)
         } else {
@@ -62,7 +71,7 @@ open class SFConsoleWriter: SFLogWriter {
 /// off to an OSLog with the specified subsystem and category.
 open class SFOSLogWriter: SFLogWriter {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     public let subsystem: String
     public let category: String
@@ -74,6 +83,8 @@ open class SFOSLogWriter: SFLogWriter {
     /// - Parameters:
     ///   - subsystem: The subsystem. Default is app bundle identifier
     ///   - category: The category. E.g. `ui`, `firebase`, `networking`, etc.
+    ///
+    /// - Returns: A new `SFOSLogWriter` instance.
     public init(subsystem: String = Bundle.main.bundleIdentifier!, category: String) {
         self.subsystem = subsystem
         self.category = category
@@ -88,7 +99,6 @@ open class SFOSLogWriter: SFLogWriter {
     ///   - message: The original message to write to the console.
     ///   - logLevel: The log level associated with the message.
     open func log(_ message: String, logLevel: SFLogLevel) {
-        // NOTE: Consider adding other message modifiers
         // get mathcing os_log log type
         let type = logType(forLogLevel: logLevel)
         os_log("%@", log: log, type: type, message)
@@ -113,4 +123,7 @@ open class SFOSLogWriter: SFLogWriter {
         default:                    return .default
         }
     }
+
 }
+
+// MARK: - File

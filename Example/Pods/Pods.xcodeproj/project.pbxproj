@@ -11,6 +11,7 @@
 		419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */; };
 		419149FE24B4BEBD00D8FB80 /* SFLogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */; };
 		41914A0224B4D58E00D8FB80 /* SFLogLevelsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */; };
+		41914A0C24B74B9B00D8FB80 /* SFLogMessageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41914A0B24B74B9B00D8FB80 /* SFLogMessageModifier.swift */; };
 		7083EE3F110F2FD37DEF3100CBECF945 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		834CDF90F93A6410CD4FFB5E40A4A647 /* SFLoggingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C2BA79876CE84AFEE347B58BBF272D /* SFLoggingKit-dummy.m */; };
 		A1B79E3493BCDC6A7BD39CF0324F57A1 /* SFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6964E7134AB601E057BF260636D317E /* SFLogger.swift */; };
@@ -39,6 +40,7 @@
 		419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevel.swift; path = SFLoggingKit/Classes/SFLogLevel.swift; sourceTree = "<group>"; };
 		419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFLogWriter.swift; path = SFLoggingKit/Classes/SFLogWriter.swift; sourceTree = "<group>"; };
 		41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevelsValidator.swift; path = SFLoggingKit/Classes/SFLogLevelsValidator.swift; sourceTree = "<group>"; };
+		41914A0B24B74B9B00D8FB80 /* SFLogMessageModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogMessageModifier.swift; path = SFLoggingKit/Classes/SFLogMessageModifier.swift; sourceTree = "<group>"; };
 		5E78E49DC0183EE3F0FA92BB9BD28BA0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		69446AE4431C942D4786CED3B0491AAF /* Pods-LoggingKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LoggingKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7D6ACB03F2956B15A23237DBDC8F45F8 /* Pods-LoggingKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LoggingKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */,
 				41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */,
 				419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */,
+				41914A0B24B74B9B00D8FB80 /* SFLogMessageModifier.swift */,
 				F6964E7134AB601E057BF260636D317E /* SFLogger.swift */,
 				0D6F2412512F2DDD5F708748E9D2012F /* Pod */,
 				6528D7AD4EB6DB33F71CD5DB8788DC32 /* Support Files */,
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41914A0C24B74B9B00D8FB80 /* SFLogMessageModifier.swift in Sources */,
 				419149FE24B4BEBD00D8FB80 /* SFLogWriter.swift in Sources */,
 				A1B79E3493BCDC6A7BD39CF0324F57A1 /* SFLogger.swift in Sources */,
 				419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */,

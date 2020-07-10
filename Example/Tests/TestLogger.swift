@@ -23,7 +23,7 @@ class TestLogger: XCTestCase {
     func testLoggerShouldCallWritterLogMethod() {
         // given
         let writer = MockWriter()
-        let logger = SFLogger(writers: [writer])
+        let logger = SFLogger(minLevel: .debug, writers: [writer])
         logger.isAsynchronous = false
         // when
         logger.error("Test") // or any other log method
@@ -35,7 +35,7 @@ class TestLogger: XCTestCase {
     func testLoggerShouldNotCallWritterLogMethodWhenNotEnabled() {
         // given
         let writer = MockWriter()
-        let logger = SFLogger(writers: [writer])
+        let logger = SFLogger(logLevels: .all, writers: [writer])
         logger.isAsynchronous = false
         logger.isEnabled = false
         // when
@@ -50,8 +50,7 @@ class TestLogger: XCTestCase {
         let writer = MockWriter()
         let validator = MockValidator()
         validator.islAllowed = false
-        let logger = SFLogger(logLevelsValidator: validator,
-                              writers: [writer])
+        let logger = SFLogger(logLevelsValidator: validator, writers: [writer])
         logger.isAsynchronous = false
         // when
         logger.debug("Test") // or any other log method
