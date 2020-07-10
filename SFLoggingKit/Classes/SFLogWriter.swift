@@ -164,7 +164,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
 
     /// Initializes a console writer instance.
     ///
-    /// - Parameter shouldLogInBackgroundConsole: The function to use when logging to the console. Defaults to `print`.
+    /// - Parameter fileUrl: The path to the file..
     ///
     /// - Returns: A new file writer instance.
     public init(fileUrl: URL) {
