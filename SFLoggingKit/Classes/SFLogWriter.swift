@@ -433,3 +433,7 @@ extension FileManager {
 // TODO: Terminal console writers
 // sync using FileHandle.standardError
 // async using dispatch_write(STDERR_FILENO, ...
+
+// TODO: Filter log messages by tag (ask Dyanko)
+
+// TODO: Firebase console writer
