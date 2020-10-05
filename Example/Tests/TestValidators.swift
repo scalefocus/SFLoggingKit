@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import SFLoggingKit
+@testable import SFLoggingKit
 
 class TestValidators: XCTestCase {
 

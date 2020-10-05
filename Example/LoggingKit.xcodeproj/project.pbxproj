@@ -47,6 +47,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		419797C2252AF86100100A8E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +76,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				419797C2252AF86100100A8E /* Mocks */,
 				41914A0324B7037500D8FB80 /* TestValidators.swift */,
 				41914A0724B713BD00D8FB80 /* TestLogger.swift */,
 				41914A0D24B8BBCC00D8FB80 /* TestModifiers.swift */,
