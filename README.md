@@ -1,16 +1,30 @@
-# SFLoggingKit
+# LoggingKit
 
-[![Swift Version][swift-image]][swift-url]
-[![Build Status][travis-image]][travis-url]
-[![License][license-image]][license-url]
-![CocoaPods Compatible][version-url]
-[![Platform][platform-url]][pod-url]
+[![CI Status](https://img.shields.io/travis/Martin Vasilev/LoggingKit.svg?style=flat)](https://travis-ci.org/Martin Vasilev/LoggingKit)
+[![Version](https://img.shields.io/cocoapods/v/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
+[![License](https://img.shields.io/cocoapods/l/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
+[![Platform](https://img.shields.io/cocoapods/p/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
 
-## Example
+## If you like SFLoggingKit, give it a ★ at the top right of this page.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+* **[Overview](#overview)**
+* [Preview Samples](#preview-samples) 
+* **[Requirements](#requirements)**
+* **[Installation](#installation)**
+* [CocoaPods](#cocoapods)
+* **[Usage](#usage)**
+* [With default configurations](#with-default-configurations)
+* [With custom configurations](#with-custom-configurations)
+* [Authors](#authors)
+* [Thank You](#thank-you)
+* [License](#license)
+
+## Preview Samples
+
+TBD
 
 ## Requirements
+- [x] Xcode 11.
 - [x] Swift 5.
 - [x] iOS 10 or higher
 
@@ -29,6 +43,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
+...
+
 pod 'SFLoggingKit'
 ```
 
@@ -37,23 +53,38 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
-
 ## Usage
 
 ```swift
 import SFLoggingKit
 ```
 
+### With default configurations
+
+```swift
+let defaultLogger = SFLogger()
+
+...
+
+defaultLogger.debug("Log Message")
+```
+
+### Advanced
+
+TBD
+
+**That's it.**
+
+## Authors
+
+Aleksandar Gyuzelov, aleksandar.gyuzelov@scalefocus.com
+Martin Vasilev, martin.vasilev@upnetix.com
+
+
+## Thank You
+
+A special thank you to everyone that will [contributed](https://github.com/aguzelov/SFLoggingKit/graphs/contributors) to this library to make it better. Your support is appreciated!
+
 ## License
 
-LoggingKit is available under the MIT license. See the [LICENSE][license-url] file for more info.
-
-[swift-image]:https://img.shields.io/badge/swift-5-green.svg
-[swift-url]:  https://swift.org/
-[license-image]:  https://img.shields.io/badge/License-MIT-blue.svg
-[license-url]: https://github.com/scalefocus/SFLoggingKit/blob/master/LICENSE
-[version-url]:  https://img.shields.io/cocoapods/v/SFLoggingKit.svg
-[pod-url]: http://cocoapods.org/pods/SFLoggingKit
-[platform-url]: https://img.shields.io/cocoapods/p/SFLoggingKit
-[travis-image]: https://travis-ci.com/scalefocus/SFLoggingKit.svg?branch=master
-[travis-url]: https://travis-ci.com/github/scalefocus/SFLoggingKit
+SFLoggingKit is available under the MIT license. See the LICENSE file for more info.
