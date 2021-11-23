@@ -1,6 +1,5 @@
 # LoggingKit
 
-[![CI Status](https://img.shields.io/travis/Martin Vasilev/LoggingKit.svg?style=flat)](https://travis-ci.org/Martin Vasilev/LoggingKit)
 [![Version](https://img.shields.io/cocoapods/v/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
 [![License](https://img.shields.io/cocoapods/l/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
 [![Platform](https://img.shields.io/cocoapods/p/SFLoggingKit.svg?style=flat)](https://cocoapods.org/pods/LoggingKit)
@@ -24,9 +23,9 @@
 TBD
 
 ## Requirements
-- [x] Xcode 11.
+- [x] Xcode 13.
 - [x] Swift 5.
-- [x] iOS 10 or higher
+- [x] iOS 12 or higher
 
 ## Installation
 ### CocoaPods
@@ -40,12 +39,12 @@ To integrate SFLoggingKit into your Xcode project using CocoaPods, specify it in
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '12.0'
 use_frameworks!
 
 ...
-
 pod 'SFLoggingKit'
+...
 ```
 
 Then, run the following command:
@@ -79,7 +78,7 @@ TBD
 
 Aleksandar Gyuzelov, aleksandar.gyuzelov@scalefocus.com
 Martin Vasilev, martin.vasilev@upnetix.com
-
+Aleksandar Petrov, aleksandar.spetrov@scalefocus.com
 
 ## Thank You
 
