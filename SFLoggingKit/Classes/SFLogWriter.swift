@@ -63,6 +63,7 @@ open class SFConsoleLogWriter: SFLogWriter {
 
 /// The `SFSystemLogWriter` class runs all modifiers in the order they were created and passes the resulting message
 /// off to an `OSLog` with the specified subsystem and category.
+/// NOTE: In iOS 14.0 Apple introduced `Logger` which does exactly the same
 open class SFSystemLogWriter: SFLogWriter {
 
     // MARK: - Properties
