@@ -154,7 +154,7 @@ open class SFLiteralLogMessageModifier: SFLogMessageModifier {
         format = format.replacingOccurrences(of: "{{ line }}", with: sourceFileLine(line))
 
         format = format.trimmingCharacters(in: characterSet)
-        if format.count > 0 {
+        if !format.isEmpty {
             format = "[\(format)]"
         }
 

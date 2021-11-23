@@ -22,7 +22,6 @@ open class SFLogger {
             modifiers: [
                 // NOTE: Will be printed in reverse order
                 SFLevelNameLogMessageModifier(),
-//                SFSymbolLogMessageModifier(),
                 SFLiteralLogMessageModifier(),
                 SFTimestampLogMessageModifier()
             ]
