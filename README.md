@@ -82,7 +82,7 @@ Aleksandar Petrov, aleksandar.spetrov@scalefocus.com
 
 ## Thank You
 
-A special thank you to everyone that will [contributed](https://github.com/aguzelov/SFLoggingKit/graphs/contributors) to this library to make it better. Your support is appreciated!
+A special thank you to everyone that will [contributed](https://github.com/scalefocus/SFLoggingKit/graphs/contributors) to this library to make it better. Your support is appreciated!
 
 ## License
 
