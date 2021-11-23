@@ -12,6 +12,8 @@
 		41688C0C274CF9A200E7CEE6 /* Formatter+SFLoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41688C0B274CF9A200E7CEE6 /* Formatter+SFLoggingKit.swift */; };
 		41688C0E274CF9D600E7CEE6 /* String+SFLoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41688C0D274CF9D600E7CEE6 /* String+SFLoggingKit.swift */; };
 		41688C10274CFCFE00E7CEE6 /* FileManager+SFLoggingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41688C0F274CFCFE00E7CEE6 /* FileManager+SFLoggingKit.swift */; };
+		41688C12274D161600E7CEE6 /* SFLogFileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41688C11274D161600E7CEE6 /* SFLogFileHandle.swift */; };
+		41688C14274D277700E7CEE6 /* SFStandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41688C13274D277700E7CEE6 /* SFStandardErrorOutputStream.swift */; };
 		419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */; };
 		419149FE24B4BEBD00D8FB80 /* SFLogWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */; };
 		41914A0224B4D58E00D8FB80 /* SFLogLevelsValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */; };
@@ -45,6 +47,8 @@
 		41688C0B274CF9A200E7CEE6 /* Formatter+SFLoggingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+SFLoggingKit.swift"; sourceTree = "<group>"; };
 		41688C0D274CF9D600E7CEE6 /* String+SFLoggingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SFLoggingKit.swift"; sourceTree = "<group>"; };
 		41688C0F274CFCFE00E7CEE6 /* FileManager+SFLoggingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+SFLoggingKit.swift"; sourceTree = "<group>"; };
+		41688C11274D161600E7CEE6 /* SFLogFileHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFLogFileHandle.swift; sourceTree = "<group>"; };
+		41688C13274D277700E7CEE6 /* SFStandardErrorOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFStandardErrorOutputStream.swift; sourceTree = "<group>"; };
 		419149FB24B4BE5B00D8FB80 /* SFLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevel.swift; path = SFLoggingKit/Classes/SFLogLevel.swift; sourceTree = "<group>"; };
 		419149FD24B4BEBD00D8FB80 /* SFLogWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SFLogWriter.swift; path = SFLoggingKit/Classes/SFLogWriter.swift; sourceTree = "<group>"; };
 		41914A0124B4D58D00D8FB80 /* SFLogLevelsValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SFLogLevelsValidator.swift; path = SFLoggingKit/Classes/SFLogLevelsValidator.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				41688C09274CF91500E7CEE6 /* SFLiteralOption.swift */,
 				41914A0B24B74B9B00D8FB80 /* SFLogMessageModifier.swift */,
 				F6964E7134AB601E057BF260636D317E /* SFLogger.swift */,
+				41688C11274D161600E7CEE6 /* SFLogFileHandle.swift */,
+				41688C13274D277700E7CEE6 /* SFStandardErrorOutputStream.swift */,
 				41688C0F274CFCFE00E7CEE6 /* FileManager+SFLoggingKit.swift */,
 				41688C0B274CF9A200E7CEE6 /* Formatter+SFLoggingKit.swift */,
 				41688C0D274CF9D600E7CEE6 /* String+SFLoggingKit.swift */,
@@ -322,6 +328,8 @@
 				A1B79E3493BCDC6A7BD39CF0324F57A1 /* SFLogger.swift in Sources */,
 				419149FC24B4BE5C00D8FB80 /* SFLogLevel.swift in Sources */,
 				41688C10274CFCFE00E7CEE6 /* FileManager+SFLoggingKit.swift in Sources */,
+				41688C12274D161600E7CEE6 /* SFLogFileHandle.swift in Sources */,
+				41688C14274D277700E7CEE6 /* SFStandardErrorOutputStream.swift in Sources */,
 				834CDF90F93A6410CD4FFB5E40A4A647 /* SFLoggingKit-dummy.m in Sources */,
 				41914A0224B4D58E00D8FB80 /* SFLogLevelsValidator.swift in Sources */,
 				41688C0C274CF9A200E7CEE6 /* Formatter+SFLoggingKit.swift in Sources */,

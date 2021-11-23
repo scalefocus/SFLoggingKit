@@ -183,7 +183,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
             throw SFFileWriteError.convertToDataIssue
         }
 
-        guard let fileHandle = LogFileHandle(filePath: fileUrl.path, appending: true) else {
+        guard let fileHandle = SFLogFileHandle(filePath: fileUrl.path, appending: true) else {
             throw SFFileWriteError.fileNotFound
         }
 
@@ -252,7 +252,7 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
     // MARK: - File Rotating
 
     /// The file currently being written to.
-    private lazy var currentFileHandle: LogFileHandle? = nextFileHandle(appending: true)
+    private lazy var currentFileHandle: SFLogFileHandle? = nextFileHandle(appending: true)
 
     /// The index of the current file from the rotating set.
     private lazy var currentIndex: UInt = findCurrentIndex()
@@ -296,8 +296,8 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
     }
 
     /// The next log file to be written to, already prepared for use.
-    private func nextFileHandle(appending: Bool) -> LogFileHandle? {
-        guard let fileHandle = LogFileHandle(filePath: nextURL.path, appending: appending) else {
+    private func nextFileHandle(appending: Bool) -> SFLogFileHandle? {
+        guard let fileHandle = SFLogFileHandle(filePath: nextURL.path, appending: appending) else {
             assertionFailure("The log file at URL '\(nextURL)' could not be opened.")
             return nil
         }
@@ -305,7 +305,7 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
     }
 
     /// Sets the current file to the next index.
-    private func rotateToFile(nextFileHandle: LogFileHandle?) {
+    private func rotateToFile(nextFileHandle: SFLogFileHandle?) {
         currentFileHandle = nextFileHandle
         currentIndex = nextIndex
     }
@@ -345,61 +345,40 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
 
 }
 
-private final class LogFileHandle {
+// MARK: - Stream
+
+open class SFStreamLogWriter<Target>: SFLogWriter where Target: TextOutputStream {
 
     // MARK: - Properties
 
-    private let fileManager = FileManager.default
-    private let fileHandle: FileHandle
+    private var target: Target
 
-    private var currentByteOffset: UInt64
+    // MARK: - Initializers
 
-    /// The size of this log file in bytes.
-    var bytesCount: UInt64 {
-        currentByteOffset
-    }
-
-    /// Initialize a log file handle. Fails if the file cannot be accessed.
+    /// Initializes a console writer instance.
     ///
-    /// - parameter filePath:   The absolute path to the log file.
-    /// - parameter appending:  Indicates whether new data should be appended to existing data in the file,
-    ///                         or if the file should be truncated when opened.
+    /// - Parameter target: The text outpout stream we should write to.
     ///
-    init?(filePath: String, appending: Bool) {
-        do {
-            try fileManager.ensureFileExists(filePath)
-        } catch {
-            return nil
-        }
-
-        guard let fileHandle = FileHandle(forWritingAtPath: filePath) else {
-            return nil
-        }
-
-        self.fileHandle = fileHandle
-
-        if appending {
-            currentByteOffset = fileHandle.seekToEndOfFile()
-        } else {
-            fileHandle.truncateFile(atOffset: 0)
-            currentByteOffset = 0
-        }
+    /// - Returns: A new console writer instance.
+    public init(target: Target) {
+        self.target = target
     }
 
-    deinit {
-        // clean up
-        fileHandle.synchronizeFile()
-        fileHandle.closeFile()
-    }
+    // MARK: - SFLogWriter
 
-    /// Write data to this log file.
-    func write(_ data: Data) {
-        fileHandle.write(data)
-        currentByteOffset += UInt64(data.count)
+    /// Writes the message to the standard error stream
+    ///
+    /// - Parameters:
+    ///   - message: The original message to write to the console.
+    ///   - logLevel: The log level associated with the message.
+    open func log(_ message: String, logLevel: SFLogLevel) {
+        print(message, to: &target)
     }
-
 }
 
-// MARK: - Terminal Console
+public class SFStandardErrorStreamLogWriter: SFStreamLogWriter<SFStandardErrorOutputStream> {
 
-// TODO:
+    public init() {
+        super.init(target: .init())
+    }
+}
