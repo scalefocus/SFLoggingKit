@@ -11,20 +11,17 @@ import os.log
 // NOTE: Writers don't append new line automatically.
 // If proper add it in log message string
 
-/// The `SFLogWriter` protocol defines a single API for writing a log message. The message can be written in any way
-/// the conforming object sees fit. For example, it could write to the console, write to a file, remote log to a third
-/// party service, etc.
+/// The `SFLogWriter` protocol defines a single API for writing a log message. The message can be written in any way the conforming object sees fit.
+/// For example, it could write to the console, write to a file, remote log to a third party service, etc.
 public protocol SFLogWriter {
+
     func log(_ message: String, logLevel: SFLogLevel)
 }
 
 // MARK: - Xcode Console
 
-/// The SFConsoleLogWriter class runs all modifiers in the order they were created and prints the resulting message
-/// to the Xcode console.
+/// The SFConsoleLogWriter class runs all modifiers in the order they were created and prints the resulting message  to the Xcode console.
 open class SFConsoleLogWriter: SFLogWriter {
-
-    // NOTE: Consider adding color
 
     // MARK: - Properties
 
@@ -64,8 +61,8 @@ open class SFConsoleLogWriter: SFLogWriter {
 
 // MARK: - OSLog
 
-/// The SFSystemLogWriter class runs all modifiers in the order they were created and passes the resulting message
-/// off to an OSLog with the specified subsystem and category.
+/// The `SFSystemLogWriter` class runs all modifiers in the order they were created and passes the resulting message
+/// off to an `OSLog` with the specified subsystem and category.
 open class SFSystemLogWriter: SFLogWriter {
 
     // MARK: - Properties
@@ -125,18 +122,23 @@ open class SFSystemLogWriter: SFLogWriter {
 
 // MARK: - File
 
+/// TBD: Documentation
 public protocol SFFileWritable {
+
     func write(_ text: String) throws
 }
 
+/// TBD: Documentation
 public enum SFFileWriteError: Error {
+
     case convertToDataIssue
     case fileNotFound
 }
 
-/// The SFFileLogWriter class runs all modifiers in the order they were created and prints the resulting message
-/// to a file.
+/// The SFFileLogWriter class runs all modifiers in the order they were created and prints the resulting message to a file.
 open class SFFileLogWriter: SFLogWriter, SFFileWritable {
+
+    // MARK: - Properties
 
     public let encoding: String.Encoding
     public let fileUrl: URL
@@ -146,8 +148,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
     /// Initializes a file writer instance.
     ///
     /// - Parameter fileUrl:    The path to the file.
-    /// - Parameter encoding:   The encoding used to convert log message into data before writing.
-    ///                         Default is utf8.
+    /// - Parameter encoding:   The encoding used to convert log message into data before writing. Default is utf8.
     ///
     /// - Returns: A new file writer instance.
     public init(fileUrl: URL, encoding: String.Encoding = .utf8) {
@@ -159,8 +160,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
 
     /// Writes the message to the console using the global `print` or `NSLog`  function.
     ///
-    /// Modifier is run over the message in the order to provide log level before writing the message to
-    /// the console.
+    /// Modifier is run over the message in the order to provide log level before writing the message to the console.
     ///
     /// - Parameters:
     ///   - message: The original message to write to the console.
@@ -169,7 +169,7 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
         do {
             try write(message)
         } catch {
-            // Do something
+            // NOTE: Do something
         }
     }
 
@@ -192,9 +192,11 @@ open class SFFileLogWriter: SFLogWriter, SFFileWritable {
 
 }
 
-/// The SFRotatingFileLogWriter class runs all modifiers in the order they were created and writes the resulting message
+/// The` SFRotatingFileLogWriter` class runs all modifiers in the order they were created and writes the resulting message
 /// to  a set of numbered files. Once a file has reached its maximum file size, the writer automatically rotates to the next file in the set.
 open class SFRotatingFileLogWriter: SFFileLogWriter {
+
+    // MARK: - Properties
 
     /// The maximum allowed file size in bytes.
     let maxFileSize: UInt
@@ -208,11 +210,9 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
     ///
     /// - Parameter fileUrl:        The URL used to build the rotating file set’s file URLs. Each file's index
     ///                             number will be prepended to the last path component of this URL.
-    /// - Parameter encoding:       The encoding used to convert log message into data before writing.
-    ///                             Default is utf8.
+    /// - Parameter encoding:       The encoding used to convert log message into data before writing. Default is utf8.
     /// - Parameter numberOfFiles:  The number of files to be used in the rotation. Defaults to `4`.
-    /// - Parameter maxFileSize:    The maximum file size of each file in the rotation, specified in megabytes.
-    ///                             Defaults to 1 MB.
+    /// - Parameter maxFileSize:    The maximum file size of each file in the rotation, specified in megabytes. Defaults to 1 MB.
     ///
     /// - Returns: A new file writer instance.
     public init?(fileUrl: URL, encoding: String.Encoding = .utf8, numberOfFiles: UInt = 4, maxFileSize: UInt = 1) {
@@ -346,6 +346,9 @@ open class SFRotatingFileLogWriter: SFFileLogWriter {
 }
 
 private final class LogFileHandle {
+
+    // MARK: - Properties
+
     private let fileManager = FileManager.default
     private let fileHandle: FileHandle
 
@@ -393,47 +396,10 @@ private final class LogFileHandle {
     func write(_ data: Data) {
         fileHandle.write(data)
         currentByteOffset += UInt64(data.count)
-//        privateModificationTracker = CFAbsoluteTimeGetCurrent()
     }
 
-}
-
-extension String {
-    var deletingLastPathComponent: String {
-        (self as NSString).deletingLastPathComponent
-    }
-}
-
-extension FileManager {
-    func ensureFileExists(_ filePath: String) throws {
-        guard !fileExists(atPath: filePath) else {
-            return
-        }
-
-        let directoryPath = filePath.deletingLastPathComponent
-        try ensureDirectoryExists(directoryPath)
-
-        guard createFile(atPath: filePath, contents: nil, attributes: nil) else {
-            throw NSError(domain: NSURLErrorDomain,
-                          code: NSURLErrorCannotCreateFile,
-                          userInfo: [NSURLErrorKey: filePath])
-        }
-    }
-
-     func ensureDirectoryExists(_ directoryPath: String) throws {
-        guard !fileExists(atPath: directoryPath) else {
-            return
-        }
-        try createDirectory(atPath: directoryPath, withIntermediateDirectories: true)
-    }
 }
 
 // MARK: - Terminal Console
 
-// TODO: Terminal console writers
-// sync using FileHandle.standardError
-// async using dispatch_write(STDERR_FILENO, ...
-
-// TODO: Filter log messages by tag (ask Dyanko)
-
-// TODO: Firebase console writer
+// TODO:

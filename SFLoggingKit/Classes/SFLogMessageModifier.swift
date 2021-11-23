@@ -7,10 +7,13 @@
 
 import Foundation
 
-/// The SFMessageModifier protocol defines a single method for modifying a log message after it has been constructed.
+/// The `SFMessageModifier` protocol defines a single method for modifying a log message after it has been constructed.
+///
 /// This is very flexible allowing any object that conforms to modify messages in any way it wants.
 public protocol SFLogMessageModifier {
+
     func modify(_ message: String, with logLevel: SFLogLevel, _ file: String, _ function: String, _ line: Int) -> String
+
 }
 
 // MARK: - Timestamp
@@ -44,7 +47,11 @@ open class SFTimestampLogMessageModifier: SFLogMessageModifier {
     ///   - line: The line at which the call happens.
     ///
     /// - Returns: A newly formatted message.
-    open func modify(_ message: String, with logLevel: SFLogLevel, _ file: String, _ function: String, _ line: Int) -> String {
+    open func modify(_ message: String,
+                     with logLevel: SFLogLevel,
+                     _ file: String,
+                     _ function: String,
+                     _ line: Int) -> String {
         let timestampString = timestampFormatter.string(from: Date())
         return "\(timestampString) \(message)"
     }
@@ -67,8 +74,12 @@ open class SFSymbolLogMessageModifier: SFLogMessageModifier {
     ///   - line: The line at which the call happens.
     ///
     /// - Returns: A newly formatted message.
-    open func modify(_ message: String, with logLevel: SFLogLevel, _ file: String, _ function: String, _ line: Int) -> String {
-        return "\(logLevel.symbol) \(message)"
+    open func modify(_ message: String,
+                     with logLevel: SFLogLevel,
+                     _ file: String,
+                     _ function: String,
+                     _ line: Int) -> String {
+        "\(logLevel.symbol) \(message)"
     }
 
 }
@@ -89,62 +100,23 @@ open class SFLevelNameLogMessageModifier: SFLogMessageModifier {
     ///   - line: The line at which the call happens.
     ///
     /// - Returns: A newly formatted message.
-    open func modify(_ message: String, with logLevel: SFLogLevel, _ file: String, _ function: String, _ line: Int) -> String {
-        return "[\(logLevel.description)] \(message)"
+    open func modify(_ message: String,
+                     with logLevel: SFLogLevel,
+                     _ file: String,
+                     _ function: String,
+                     _ line: Int) -> String {
+        "[\(logLevel.description)] \(message)"
     }
 
 }
 
 // MARK: - Literals
 
-public struct LiteralOption: OptionSet, Equatable, Hashable {
-
-    // MARK: - Log Levels
-
-    /// Creates a new default `.disabled` instance with a bitmask where all bits are equal to 0.
-    public static let disabled: LiteralOption = LiteralOption(rawValue: 0)
-
-    /// Creates a new default `.file` instance with a bitmask of `1`.
-    public static let file: LiteralOption = LiteralOption(rawValue: 1 << 0)
-
-    /// Creates a new default `.function` instance with a bitmask of `1 << 1`.
-    public static let function: LiteralOption = LiteralOption(rawValue: 1 << 1)
-
-    /// Creates a new default `.line` instance with a bitmask of `1 << 2`.
-    public static let line: LiteralOption = LiteralOption(rawValue: 1 << 2)
-
-    /// Creates a new default `.all` instance with a bitmask where all bits equal are equal to `1`.
-    public static let all: LiteralOption = LiteralOption(rawValue: 0b11111111)
-
-    // MARK: - RawRepresentable
-
-    /// Defines the RawValue type as a UInt8 to satisfy the `RawRepresentable` protocol.
-    public typealias RawValue = UInt8
-
-    /// Returns the raw bitmask value of the LogLevel and satisfies the `RawRepresentable` protocol.
-    public let rawValue: RawValue
-
-    /// Creates a literals options instance with the given raw value.
-    ///
-    /// - Parameter rawValue: The raw bitmask value for the log level.
-    ///
-    /// - Returns: A new log level instance.
-    public init(rawValue: RawValue) {
-        self.rawValue = rawValue
-    }
-
-}
-
-//
-
 open class SFLiteralLogMessageModifier: SFLogMessageModifier {
 
     // MARK: - Properties
 
-    public let options: LiteralOption
-
-    // NOTE: Add option to choose wheather to keep file extension or not.
-    // NOTE: Add option to change format
+    public let options: SFLiteralOption
 
     // MARK: - Initializers
 
@@ -153,7 +125,7 @@ open class SFLiteralLogMessageModifier: SFLogMessageModifier {
     /// - Parameter options: The literals that should be added to the message
     ///
     /// - Returns: A new `SFLiteralLogMessageModifier` instance.
-    public init(options: LiteralOption = .all) {
+    public init(options: SFLiteralOption = .all) {
         self.options = options
     }
 
@@ -169,7 +141,11 @@ open class SFLiteralLogMessageModifier: SFLogMessageModifier {
     ///   - line: The line at which the call happens.
     ///
     /// - Returns: A newly formatted message.
-    open func modify(_ message: String, with logLevel: SFLogLevel, _ file: String, _ function: String, _ line: Int) -> String {
+    open func modify(_ message: String,
+                     with logLevel: SFLogLevel,
+                     _ file: String,
+                     _ function: String,
+                     _ line: Int) -> String {
         var format = "{{ file }}, {{ function }} {{ line }}"
         let characterSet = CharacterSet(charactersIn: " ,")
 
@@ -208,30 +184,5 @@ open class SFLiteralLogMessageModifier: SFLogMessageModifier {
 
         return "at \(line)"
     }
-}
 
-// MARK: - Sugar
-
-/// Default log timestamp formatter sugar extension
-public extension Formatter {
-    static var logTimestampFormatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-        return formatter
-    }()
-}
-
-/// String syntax sugar extension
-extension String {
-    var ns: NSString {
-        return self as NSString
-    }
-
-    var lastPathComponent: String {
-        return ns.lastPathComponent
-    }
-
-    var stringByDeletingPathExtension: String {
-        return ns.deletingPathExtension
-    }
 }

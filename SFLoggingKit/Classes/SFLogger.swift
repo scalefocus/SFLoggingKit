@@ -8,14 +8,11 @@
 
 import Foundation
 
-// NOTE: Consider adding Thread name in log
-// NOTE: Consider adding column number in log
-// NOTE: Consider support for message id
-// NOTE: Consider adding filters
-
 // MARK: - Interface
 
 open class SFLogger {
+
+    // MARK: - Instances
 
     /// Default instance. Writes to console using `print()`. Adds Timestamp, file name, calling function, line and log level name
     public static let `default`: SFLogger = {
@@ -31,6 +28,8 @@ open class SFLogger {
             ]
         )
     }()
+
+    // MARK: - Properties
 
     /// Controls whether to allow log messages to be sent to the writers.
     open var isEnabled: Bool = true
@@ -59,7 +58,9 @@ open class SFLogger {
     ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
     ///
     /// - Returns: A new `SFLogger` instance.
-    public init(logLevelsValidator: SFLogLevelsValidator, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
+    public init(logLevelsValidator: SFLogLevelsValidator,
+                writers: [SFLogWriter],
+                modifiers: [SFLogMessageModifier] = []) {
         self.logLevelsValidator = logLevelsValidator
         self.writers = writers
         self.modifiers = modifiers
@@ -68,13 +69,17 @@ open class SFLogger {
     /// Initializes a logger instance.
     ///
     /// - Parameters:
-    ///   - minLevel: The minimum levels fro message that should be logged to the writers. Default is validate if level is equal or higher than `.debug`
-    ///   - writers: Array of writers that messages should be sent to.
-    ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
+    ///   - minLevel:   The minimum levels fro message that should be logged to the writers. Default is validate if level is equal or higher than `.debug`
+    ///   - writers:    Array of writers that messages should be sent to.
+    ///   - modifiers:  Array of modifiers that the writer should execute (in order) on incoming messages.
     ///
     /// - Returns: A new `SFLogger` instance.
-    public convenience init(minLevel: SFLogLevel = .debug, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
-        self.init(logLevelsValidator: SFMinimumLogLevelValidator(minLevel: minLevel), writers: writers, modifiers: modifiers)
+    public convenience init(minLevel: SFLogLevel = .debug,
+                            writers: [SFLogWriter],
+                            modifiers: [SFLogMessageModifier] = []) {
+        self.init(logLevelsValidator: SFMinimumLogLevelValidator(minLevel: minLevel),
+                  writers: writers,
+                  modifiers: modifiers)
     }
 
     /// Initializes a logger instance.
@@ -85,8 +90,12 @@ open class SFLogger {
     ///   - modifiers: Array of modifiers that the writer should execute (in order) on incoming messages.
     ///
     /// - Returns: A new `SFLogger` instance.
-    public convenience init(logLevels: SFLogLevel = .all, writers: [SFLogWriter], modifiers: [SFLogMessageModifier] = []) {
-        self.init(logLevelsValidator: SFContainsLogLevelValidator(logLevels: logLevels), writers: writers, modifiers: modifiers)
+    public convenience init(logLevels: SFLogLevel = .all,
+                            writers: [SFLogWriter],
+                            modifiers: [SFLogMessageModifier] = []) {
+        self.init(logLevelsValidator: SFContainsLogLevelValidator(logLevels: logLevels),
+                  writers: writers,
+                  modifiers: modifiers)
     }
 
 }
@@ -297,6 +306,7 @@ extension SFLogger {
 // MARK: - Modifiers
 
 private extension SFLogger {
+
     func modify(_ message: String,
                 logLevel: SFLogLevel,
                 _ file: String,

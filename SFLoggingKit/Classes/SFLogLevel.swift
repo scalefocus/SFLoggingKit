@@ -7,18 +7,18 @@
 
 import Foundation
 
-/// The different Loglevels
+/// The different log levels
 ///
-/// Debug: Should be used for debug purposes.
-/// Info: Should be used to log valuable information (possibly for testing on live).
-/// Warning: Should log various warnings or not very significant errors. Use this level to capture information about things that might result in a failure.
-/// Error: Should log errors (Server errors, library failures and so on)
-/// Severe: Should log severe errors, crashes possibly or catching serious exceptions
+/// Debug:      Should be used for debug purposes.
+/// Info:           Should be used to log valuable information (possibly for testing on live).
+/// Warning:    Should log various warnings or not very significant errors. Use this level to capture information about things that might result in a failure.
+/// Error:         Should log errors (Server errors, library failures and so on)
+/// Severe:      Should log severe errors, crashes possibly or catching serious exceptions
 public struct SFLogLevel: OptionSet, Equatable, Hashable {
 
     // MARK: - Log Levels
 
-    /// Creates a new default `.disabled` instance with a bitmask where all bits are equal to 0.
+    /// Creates a new default `.disabled` instance with a bitmask where all bits are equal to `0`.
     public static let disabled: SFLogLevel = SFLogLevel(rawValue: 0)
 
     /// Creates a new default `.debug` instance with a bitmask of `1`.
@@ -64,6 +64,7 @@ public struct SFLogLevel: OptionSet, Equatable, Hashable {
 // MARK: - CustomStringConvertible
 
 extension SFLogLevel: CustomStringConvertible {
+
     /// Returns a `String` representation of the `SFLogLevel`.
     public var description: String {
         switch self {
@@ -82,14 +83,16 @@ extension SFLogLevel: CustomStringConvertible {
         case .all:
             return "All"
         default:
-            return "Unknown"
+            return "Custom"
         }
     }
+
 }
 
 // MARK: - Symbol
 
 extension SFLogLevel {
+
     /// Returns a `Symbol` representation of the `SFLogLevel`.
     var symbol: String {
         switch self {
@@ -107,4 +110,5 @@ extension SFLogLevel {
             return "\u{25B6}\u{FE0F}" // ▶️
         }
     }
+    
 }

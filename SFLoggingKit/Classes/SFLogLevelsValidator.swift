@@ -7,12 +7,18 @@
 
 import Foundation
 
-// NOTE: Strategy pattern
+/// The `SFLogLevelsValidator` protocol defines a single method for validating if log level is valid to generate output.
 public protocol SFLogLevelsValidator {
+
     func isLogLevelAllowed(_ logLevel: SFLogLevel) -> Bool
 }
 
+// MARK: - Concrete Validators
+
 public final class SFMinimumLogLevelValidator: SFLogLevelsValidator {
+
+    // MARK: - Properties
+
     /// The minimum level of severity.
     public let minLevel: SFLogLevel
 
@@ -33,9 +39,13 @@ public final class SFMinimumLogLevelValidator: SFLogLevelsValidator {
     public func isLogLevelAllowed(_ logLevel: SFLogLevel) -> Bool {
         return logLevel.rawValue >= minLevel.rawValue
     }
+
 }
 
 public final class SFContainsLogLevelValidator: SFLogLevelsValidator {
+
+    // MARK: - Properties
+
     /// Log levels this logger is configured for.
     public let logLevels: SFLogLevel
 
@@ -56,4 +66,5 @@ public final class SFContainsLogLevelValidator: SFLogLevelsValidator {
     public func isLogLevelAllowed(_ logLevel: SFLogLevel) -> Bool {
         return logLevels.contains(logLevel)
     }
+    
 }

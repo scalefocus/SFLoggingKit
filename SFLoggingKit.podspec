@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = '2.1.0'
   s.summary          = 'LoggingKit handles logging for various LogLevels'
   s.description      = <<-DESC
-TODO: LoggingKit handles logging for various LogLevels Add long description of the pod here.
+ TBD
                        DESC
 
   s.homepage         = 'https://github.com/scalefocus/SFLoggingKit'
